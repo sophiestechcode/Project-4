@@ -1,0 +1,83 @@
+package com.example.ruben.project4;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Gill on 2-7-2016.
+ */
+public class DBHandler4 extends SQLiteOpenHelper {
+
+    // Database Version
+    private static final int DATABASE_VERSION = 4;
+    // Database Name
+    private static final String DATABASE_NAME = "M4";
+    // Contacts table name
+    private static final String TABLE_M4 = "M4";
+    // M4 Table Columns names
+
+
+    private static final String KEY_MK_OMSCHRIJVING = "MK_omschrijving";
+    private static final String KEY_MERK = "Merk";
+    private static final String KEY_KLEUR = "Kleur";
+
+
+
+    public DBHandler4(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_M4 + "("
+                + KEY_MK_OMSCHRIJVING + " TEXT," + KEY_MERK + " TEXT," + KEY_KLEUR + " TEXT" + ")";
+        db.execSQL(CREATE_CONTACTS_TABLE);
+    }
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+// Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_M4);
+// Creating tables again
+        onCreate(db);
+    }
+
+    // Getting All M4
+    public List<M4> getAllM4() {
+        List<M4> M4List = new ArrayList<M4>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_M4;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                M4 m4 = new M4();
+                m4.setMK_omschrijving(cursor.getString(0));
+                m4.setMerk(cursor.getString(1));
+                m4.setKleur(cursor.getString(2));
+                // Adding contact to list
+                M4List.add(m4);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return M4List;
+    }
+
+    // Count M4
+    public int getM4Count() {
+        String countQuery = "SELECT * FROM " + TABLE_M4;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
+    }
+}

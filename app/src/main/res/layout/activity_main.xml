@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ruben.project4.MainActivity"
+    android:padding="5dp"
+    android:longClickable="true"
+    android:clickable="true"
+    android:background="#ffffff"
+    android:transitionGroup="false"
+    android:nestedScrollingEnabled="true">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meest gestolen fiets merken
+        (PIE CHART)"
+        android:id="@+id/meest_gestolen_fiets_merken_btn"
+        android:textSize="20sp"
+        android:textColor="#d42727"
+        android:clickable="true"
+        android:background="#ebdb2f"
+        android:layout_above="@+id/meest_gestolen_fiets_kleuren_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meest gestolen fiets kleuren
+       (PIE CHART)"
+        android:id="@+id/meest_gestolen_fiets_kleuren_btn"
+        android:textColor="#d42727"
+        android:textSize="20sp"
+        android:layout_above="@+id/top_trommellocaties_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#5b540a" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top 5 Trommellocaties
+        (BAR CHART)"
+        android:id="@+id/top_trommellocaties_btn"
+        android:textSize="20sp"
+        android:textColor="#e51111"
+        android:clickable="true"
+        android:layout_above="@+id/aantal_gesloten_fietsen_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ebdb2f" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aantal gestolen fietsen per maand
+    (LINE CHART) "
+        android:id="@+id/aantal_gesloten_fietsen_btn"
+        android:textSize="20sp"
+        android:textColor="#e22121"
+        android:clickable="true"
+        android:singleLine="false"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#5b540a"
+        android:padding="5dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fietsdiefstallen en trommels per wijk
+     (GROUPED BY CHART)"
+        android:id="@+id/fietsdiefstallen_per_wijk"
+        android:textColor="#e22121"
+        android:textSize="20sp"
+        android:singleLine="false"
+        android:background="#ebdb2f"
+        android:layout_below="@+id/aantal_gesloten_fietsen_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOTE"
+        android:id="@+id/button6"
+        android:textSize="20sp"
+        android:background="#b1a413"
+        android:layout_below="@+id/fietsdiefstallen_per_wijk"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="43dp" />
+</RelativeLayout>

@@ -1,0 +1,84 @@
+package com.example.ruben.project4;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Gill on 2-7-2016.
+ */
+public class DBHandler3 extends SQLiteOpenHelper {
+
+    // Database Version
+    private static final int DATABASE_VERSION = 3;
+    // Database Name
+    private static final String DATABASE_NAME = "M3";
+    // Contacts table name
+    private static final String TABLE_M3 = "M3";
+    // M3 Table Columns names
+
+    private static final String KEY_WIJKNUMMER = "Wijknummer";
+    private static final String KEY_NAAM = "Naam";
+    private static final String KEY_TROMMELS = "Trommels";
+    private static final String KEY_DIEFSTALLEN = "Diefstallen";
+
+    public DBHandler3(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_M3 + "("
+                + KEY_WIJKNUMMER + " INTEGER," + KEY_NAAM + " TEXT," + KEY_TROMMELS + " INTEGER," + KEY_DIEFSTALLEN + " INTEGER" + ")";
+        db.execSQL(CREATE_CONTACTS_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+// Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_M3);
+// Creating tables again
+        onCreate(db);
+    }
+
+    // Getting All M3
+    public List<M3> getAllM3() {
+        List<M3> M3List = new ArrayList<M3>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_M3;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                M3 m3 = new M3();
+                m3.setWijknummer(Integer.parseInt(cursor.getString(0)));
+                m3.setNaam(cursor.getString(1));
+                m3.setTrommels(Integer.parseInt(cursor.getString(2)));
+                m3.setDiefstallen(Integer.parseInt(cursor.getString(3)));
+                // Adding contact to list
+                M3List.add(m3);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return M3List;
+    }
+
+    // Count M3
+    public int getM3Count() {
+        String countQuery = "SELECT * FROM " + TABLE_M3;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
+    }
+}

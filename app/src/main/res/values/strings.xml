@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">project4</string>
+
+    <string-array name="brew_array">
+        <item>Cappuccin </item>
+        <item>Espresso</item>
+        <item>Mocha</item>
+        <item>Caffè Americano</item>
+        <item>Cafe Zorro</item>
+    </string-array>
+
+    <string name="app_namee">Memo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_edit">Memo</string>
+    <string name="meest_gestolen_fiets_merken_str">Meest Gestolen Fiets Merken</string>
+    <string name="top_5_trommellocaties_str">Top 5 Trommellocaties</string>
+    <string name="meest_gestolen_fiets_kleuren_str">Meest Gestolen Fiets Kleuren</string>
+
+</resources>

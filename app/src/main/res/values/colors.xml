@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue">#3333ff</color>
+    <color name="black">#404040</color>
+    <color name="Grey">#666666</color>
+    <color name="Silver">#a6a6a6</color>
+    <color name="Orangelike">#bfbf3b</color>
+    <color name="lightred">#ff6666</color>
+    <color name="white">#ffffff</color>
+    <color name="multiple">#13CE67</color>
+    <color name="red">#ff0000</color>
+
+    <color name="pie_1.1">#1A8031</color>
+    <color name="pie_1.2">#29CC4F</color>
+    <color name="pie_1.3">#468019</color>
+    <color name="pie_1.4">#70CC29</color>
+    <color name="pie_1.5">#7F7F7F</color>
+    <color name="pie_1.6">#7F7F7F</color>
+
+    <color name="pie_2.1">#214FAC</color>
+    <color name="pie_2.2">#2F72F7</color>
+    <color name="pie_2.3">#657CAB</color>
+    <color name="pie_2.4">#92B4F7</color>
+    <color name="pie_2.5">#545454</color>
+    <color name="pie_2.6">#ABABAB</color>
+    <color name="pie_2.7">#347FC9</color>
+
+
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ruben.project4">
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:name="RotterdamBikesApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Fiets info Rotterdam"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <receiver android:name=".AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".NoteMain" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.NoteMain" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.com.example.ruben.project4.NoteMain" />
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DistrictSelectionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.DistrictSelectionActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TheftAndStoragePerDistrict" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.DiefstalEnTrommelPerWijk" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PieChartt" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.PieChartt" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OtherPie" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.OtherPie" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Grouped" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.Grouped" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BarChartt" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.BarChartt" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LineChartt" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.com.example.ruben.project4.LineChartt" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

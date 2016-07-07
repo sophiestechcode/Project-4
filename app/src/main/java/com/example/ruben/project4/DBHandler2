@@ -1,0 +1,81 @@
+package com.example.ruben.project4;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Gill on 2-7-2016.
+ */
+public class DBHandler2 extends SQLiteOpenHelper {
+
+    // Database Version
+    private static final int DATABASE_VERSION = 2;
+    // Database Name
+    private static final String DATABASE_NAME = "M2";
+    // Contacts table name
+    private static final String TABLE_M2 = "M2";
+    // M2 Table Columns names
+
+
+    private static final String KEY_MK_OMSCHRIJVING = "MK_omschrijving";
+    private static final String KEY_GEMIDDELDE_MAAND = "Gemiddelde_maand";
+
+    public DBHandler2(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_M2 + "("
+                + KEY_MK_OMSCHRIJVING + " TEXT," + KEY_GEMIDDELDE_MAAND + " INTEGER" + ")";
+        db.execSQL(CREATE_CONTACTS_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+// Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_M2);
+// Creating tables again
+        onCreate(db);
+    }
+
+    // Getting All M2
+    public List<M2> getAllM2() {
+        List<M2> M2List = new ArrayList<M2>();
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_M2;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                M2 m2 = new M2();
+                m2.setMK_omschrijving(cursor.getString(0));
+                m2.setGemiddelde_maand(Integer.parseInt(cursor.getString(1)));
+                // Adding contact to list
+                M2List.add(m2);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return M2List;
+    }
+
+    // Count M2
+    public int getM2Count() {
+        String countQuery = "SELECT * FROM " + TABLE_M2;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
+    }
+}
